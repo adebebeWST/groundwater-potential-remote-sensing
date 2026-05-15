@@ -42,6 +42,8 @@ export function useUrlState() {
       setLayerVisibility(update);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // Intentionally empty deps array: run only on mount to read initial URL params.
+  // The setter functions (setCenter, setScenario, etc.) are stable Zustand actions.
   }, []);
 
   // Build the shareable URL from current state

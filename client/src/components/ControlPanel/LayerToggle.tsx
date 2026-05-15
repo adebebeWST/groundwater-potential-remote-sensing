@@ -52,7 +52,6 @@ export const LayerToggle: React.FC = () => {
                 className={`w-8 h-4 rounded-full transition-colors flex-shrink-0 ${
                   layers[layer.id] ? 'bg-primary-600' : 'bg-gray-200'
                 }`}
-                onClick={() => toggleLayer(layer.id)}
                 role="switch"
                 aria-checked={layers[layer.id]}
                 tabIndex={0}

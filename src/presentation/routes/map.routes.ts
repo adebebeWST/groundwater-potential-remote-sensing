@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { WSTLogger } from '@wst/logger';
 import { MapController } from '../controllers/MapController';
@@ -42,7 +42,7 @@ logger.info('Loading map.routes.ts');
  *       200:
  *         description: Array of layer metadata objects
  */
-router.get('/api/map/layers', [], (req: any, res: any) => {
+router.get('/api/map/layers', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.getLayers(req, res);
 });
@@ -70,7 +70,7 @@ router.get('/api/map/layers', [], (req: any, res: any) => {
  *       400:
  *         description: Invalid or missing coordinates
  */
-router.get('/api/map/feature-info', [], (req: any, res: any) => {
+router.get('/api/map/feature-info', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.getFeatureInfo(req, res);
 });
@@ -95,7 +95,7 @@ router.get('/api/map/feature-info', [], (req: any, res: any) => {
  *       200:
  *         description: Candidate area list with counts per priority
  */
-router.get('/api/map/candidate-areas', [], (req: any, res: any) => {
+router.get('/api/map/candidate-areas', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.getCandidateAreas(req, res);
 });
@@ -119,7 +119,7 @@ router.get('/api/map/candidate-areas', [], (req: any, res: any) => {
  *       400:
  *         description: Query too short
  */
-router.get('/api/map/search/woreda', [], (req: any, res: any) => {
+router.get('/api/map/search/woreda', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.searchWoreda(req, res);
 });
@@ -140,7 +140,7 @@ router.get('/api/map/search/woreda', [], (req: any, res: any) => {
  *       200:
  *         description: GeoJSON FeatureCollection of boreholes
  */
-router.get('/api/map/boreholes', [], (req: any, res: any) => {
+router.get('/api/map/boreholes', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.getBoreholes(req, res);
 });
@@ -161,7 +161,7 @@ router.get('/api/map/boreholes', [], (req: any, res: any) => {
  *       200:
  *         description: GeoJSON FeatureCollection of VES points
  */
-router.get('/api/map/ves-points', [], (req: any, res: any) => {
+router.get('/api/map/ves-points', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.getVESPoints(req, res);
 });
@@ -176,7 +176,7 @@ router.get('/api/map/ves-points', [], (req: any, res: any) => {
  *       200:
  *         description: Array of ClimateScenario objects
  */
-router.get('/api/map/scenarios', [], (req: any, res: any) => {
+router.get('/api/map/scenarios', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.getScenarios(req, res);
 });
@@ -207,7 +207,7 @@ router.get('/api/map/scenarios', [], (req: any, res: any) => {
  *       200:
  *         description: Tile URL and scenario metadata
  */
-router.post('/api/gee/compute-scenario', [], (req: any, res: any) => {
+router.post('/api/gee/compute-scenario', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.computeScenario(req, res);
 });
@@ -240,7 +240,7 @@ router.post('/api/gee/compute-scenario', [], (req: any, res: any) => {
  *       200:
  *         description: Report generation result with download URL
  */
-router.post('/api/report/generate', [], (req: any, res: any) => {
+router.post('/api/report/generate', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.generateReport(req, res);
 });
@@ -261,7 +261,7 @@ router.post('/api/report/generate', [], (req: any, res: any) => {
  *       200:
  *         description: Shared state object
  */
-router.get('/api/report/share/:token', [], (req: any, res: any) => {
+router.get('/api/report/share/:token', [], (req: Request, res: Response) => {
   const ctrl = container.resolve(MapController);
   ctrl.getSharedState(req, res);
 });

@@ -2,12 +2,13 @@ import { inject, injectable } from 'tsyringe';
 import { WSTLogger } from '@wst/logger';
 import { BaseError } from '@wst/core';
 import { IGroundwaterRepository, BboxFilter } from '../domain/interfaces/IGroundwaterRepository';
-import { ICandidateAreaRepository } from '../domain/interfaces/ICandidateAreaRepository';
+import { ICandidateAreaRepository, CandidateAreaFilter } from '../domain/interfaces/ICandidateAreaRepository';
 import { IWoredaRepository } from '../domain/interfaces/IWoredaRepository';
 import { GroundwaterPoint } from '../domain/entities/GroundwaterPoint';
 import { CandidateArea } from '../domain/entities/CandidateArea';
 import { Woreda } from '../domain/entities/Woreda';
 import { buildClimateScenario, ClimateScenario, ScenarioId, ScenarioYear, SCENARIO_DEFINITIONS } from '../domain/entities/ClimateScenario';
+import type { Priority } from '../domain/entities/GroundwaterPoint';
 
 // DTO types returned by the service
 export interface LayerMetadata {
@@ -193,8 +194,8 @@ export class MapService implements IMapService {
   async getCandidateAreas(priority?: number, woreda?: string): Promise<CandidateCountByPriority> {
     this.logger.info(`MapService: Getting candidate areas priority=${priority}, woreda=${woreda}`);
 
-    const filter: { priority?: any; woreda_name?: string } = {};
-    if (priority) filter.priority = priority;
+    const filter: CandidateAreaFilter = {};
+    if (priority) filter.priority = priority as Priority;
     if (woreda) filter.woreda_name = woreda;
 
     const areas = await this.candidateAreaRepository.findByFilter(filter);
