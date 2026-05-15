@@ -20,13 +20,12 @@
   "dependencies": {
     "@nestjs/swagger": "^11.1.5",
     "@vendia/serverless-express": "^4.12.6",
-    "@wst/core": "file:../wst-core",
-    "@wst/database": "file:../wst-database",
-    "@wst/logger": "file:../wst-logger",
-    "@wst/middleware": "file:../wst-middleware",
-    "@wst/security": "file:../wst-security",
-    "auth-wsthub-services": "file:",
-    "axios": "^1.7.2",
+    "@wst/core": "file:packages/wst-core",
+    "@wst/database": "file:packages/wst-database",
+    "@wst/logger": "file:packages/wst-logger",
+    "@wst/middleware": "file:packages/wst-middleware",
+    "@wst/security": "file:packages/wst-security",
+    "axios": "^1.15.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "connect-timeout": "^1.9.0",
@@ -45,7 +44,7 @@
     "swagger-ui-express": "^5.0.1",
     "tsx": "^4.19.4",
     "tsyringe": "^4.8.0",
-    "typeorm": "^0.3.20",
+    "typeorm": "^0.3.26",
     "winston": "^3.8.2"
   },
   "devDependencies": {
@@ -72,8 +71,6 @@
     "istanbul-reports": "^3.1.7",
     "jest": "^29.7.0",
     "jest-mock-extended": "^4.0.0-beta1",
-    "serverless": "^4.14.2",
-    "serverless-offline": "^14.4.0",
     "ts-jest": "29.1.2",
     "ts-node-dev": "^2.0.0",
     "tsc-alias": "^1.8.16",
@@ -81,5 +78,9 @@
     "tsc-init": "^2.1.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.3"
+  },
+  "optionalDependencies": {
+    "serverless": "^4.14.2",
+    "serverless-offline": "^14.4.0"
   }
 }

@@ -19,13 +19,13 @@ export class GroundwaterRepository implements IGroundwaterRepository {
       ['borehole', 38.765, 9.012, 'high',     88, 1, 1, 12.5, 45.0, 'high_pot_low_uncert',   {}],
       ['borehole', 38.820, 9.050, 'high',     80, 1, 1, 10.2, 52.0, 'high_pot_low_uncert',   {}],
       ['borehole', 38.700, 8.980, 'moderate', 65, 2, 2, 7.8,  60.0, 'high_pot_med_uncert',   {}],
-      ['ves_point',38.750, 9.030, 'high',     75, 1, 1, null, null, 'high_pot_low_uncert',   {}],
+      ['ves_point',38.750, 9.030, 'high',     75, 1, 1, undefined, undefined, 'high_pot_low_uncert',   {}],
       ['borehole', 38.850, 9.100, 'low',      40, 3, 3, 3.2,  80.0, 'high_pot_high_uncert',  {}],
       ['borehole', 39.000, 9.200, 'high',     90, 1, 2, 14.1, 38.0, 'high_pot_low_uncert',   {}],
-      ['ves_point',38.900, 9.150, 'moderate', 60, 2, 2, null, null, 'high_pot_med_uncert',   {}],
+      ['ves_point',38.900, 9.150, 'moderate', 60, 2, 2, undefined, undefined, 'high_pot_med_uncert',   {}],
       ['borehole', 38.600, 8.900, 'moderate', 58, 2, 3, 6.5,  70.0, 'high_pot_med_uncert',   {}],
       ['borehole', 38.650, 8.950, 'low',      35, 3, 3, 2.1,  95.0, 'high_pot_high_uncert',  {}],
-      ['ves_point',39.050, 9.250, 'high',     82, 1, 2, null, null, 'high_pot_low_uncert',   {}],
+      ['ves_point',39.050, 9.250, 'high',     82, 1, 2, undefined, undefined, 'high_pot_low_uncert',   {}],
     ];
 
     for (const row of rawData) {
