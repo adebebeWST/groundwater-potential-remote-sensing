@@ -6,6 +6,14 @@ import { IStationRepository } from '../domain/interfaces/IStationRepository';
 import { StationRepository } from '../infrastructure/repositories/StationRepository';
 import { WSTLogger, LoggerConfig } from '@wst/logger';
 import { DatabaseConnection, EnvironmentConfigLoader } from '@wst/database';
+// Groundwater SDSS registrations
+import { MapService, IMapService } from '../services/MapService';
+import { IGroundwaterRepository } from '../domain/interfaces/IGroundwaterRepository';
+import { ICandidateAreaRepository } from '../domain/interfaces/ICandidateAreaRepository';
+import { IWoredaRepository } from '../domain/interfaces/IWoredaRepository';
+import { GroundwaterRepository } from '../infrastructure/repositories/GroundwaterRepository';
+import { CandidateAreaRepository } from '../infrastructure/repositories/CandidateAreaRepository';
+import { WoredaRepository } from '../infrastructure/repositories/WoredaRepository';
 
 // Create logger configuration for this service
 const loggerConfig: LoggerConfig = {
@@ -38,7 +46,13 @@ container.registerInstance('DatabaseConnection', databaseConnection);
 
 // Repositories
 container.registerSingleton<IStationRepository>('StationRepository', StationRepository);
+// Groundwater SDSS repositories
+container.registerSingleton<IGroundwaterRepository>('GroundwaterRepository', GroundwaterRepository);
+container.registerSingleton<ICandidateAreaRepository>('CandidateAreaRepository', CandidateAreaRepository);
+container.registerSingleton<IWoredaRepository>('WoredaRepository', WoredaRepository);
 
 // Services
 container.registerSingleton<IHelloWorldService>('HelloWorldService', HelloWorldService);
 container.registerSingleton<IStationService>('StationService', StationService);
+// Groundwater SDSS services
+container.registerSingleton<IMapService>('MapService', MapService);

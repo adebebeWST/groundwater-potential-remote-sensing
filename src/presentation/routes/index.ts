@@ -1,6 +1,7 @@
 import { swaggerRoutes } from '../../infrastructure/config/swagger';
 import { apiRoutes } from './api.routes';
 import { stationRoutes } from './station.routes';
+import { mapRoutes } from './map.routes';
 import { Router } from 'express';
 import { errorMiddleware, errorLoggingMiddleware } from '@wst/middleware';
 import { container } from 'tsyringe';
@@ -23,6 +24,11 @@ const moduleRegister = [
     name: 'Stations',
     url: '/',
     handlers: stationRoutes,
+  },
+  {
+    name: 'Map',
+    url: '/',
+    handlers: mapRoutes,
   },
 ];
 
